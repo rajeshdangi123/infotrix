@@ -1,0 +1,46 @@
+{% extends 'app1/base.html' %}
+{% block title %} read {%endblock title%}
+
+{% block contants %}
+<style>
+    body{
+        background-color: aliceblue;
+    }
+</style>
+<form action="" method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    <!-- <label for="email_field">email_field</label>
+    <input type="text" name="email_field">
+    <button  input type="submit" value="submit">submit</button> -->
+    
+<table border="1" cellpadding="142px">
+    <tr>
+        <th>ID</th>
+        <th>User_name</th>
+        <th>First_name</th>
+        <th>Last_name</th>
+        <th>Email_field</th>
+        <th>Phone_number</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr>
+
+     {{customer}}
+    <tr>
+        <td>{{customer.id}}</td>
+        <td>{{customer.user_name}}</td>
+        
+        <td>{{customer.first_name}}</td>
+        <td>{{customer.last_name}}</td>
+        <td>{{customer.email_field}}</td>
+        <td>{{customer.phone_number}}</td>
+        <td>{{customer.password}}</td>
+        <td>
+            <a href="{% url 'update'  %}" class="btn btn-warning btn-sm">update</a>
+
+    </tr>
+    
+</table>
+
+</form>
+{% endblock contants %}
